@@ -1,0 +1,147 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Background & Foreground */
+    --background: 248 249 250;        /* #F8F9FA */
+    --foreground: 55 65 81;           /* #374151 - Gray 700 */
+
+    /* Sidebar */
+    --sidebar-bg: 255 255 255;        /* #FFFFFF */
+    --sidebar-width: 220px;
+    --sidebar-collapsed-width: 64px;
+
+    /* Muted */
+    --muted: 243 244 246;             /* #F3F4F6 - Gray 100 */
+    --muted-foreground: 107 114 128;  /* #6B7280 - Gray 500 */
+
+    /* Border */
+    --border: 229 231 235;            /* #E5E7EB - Gray 200 */
+
+    /* Primary - Indigo */
+    --primary: 99 102 241;            /* #6366F1 - Indigo 500 */
+    --primary-foreground: 255 255 255;
+    --primary-light: 238 242 255;     /* #EEF2FF - Indigo 50 */
+
+    /* Accent */
+    --accent: 243 244 246;            /* #F3F4F6 - Gray 100 */
+    --accent-foreground: 55 65 81;
+
+    /* Card */
+    --card: 255 255 255;
+    --card-foreground: 55 65 81;
+
+    /* Destructive - Soft Red */
+    --destructive: 248 113 113;       /* #F87171 - Red 400 */
+    --destructive-foreground: 255 255 255;
+    --destructive-light: 254 226 226; /* #FEE2E2 - Red 100 */
+
+    /* Success - Soft Green */
+    --success: 74 222 128;            /* #4ADE80 - Green 400 */
+    --success-light: 220 252 231;     /* #DCFCE7 - Green 100 */
+
+    /* Warning - Soft Amber */
+    --warning: 251 191 36;            /* #FBBF24 - Amber 400 */
+    --warning-light: 254 243 199;     /* #FEF3C7 - Amber 100 */
+
+    /* Info - Soft Blue */
+    --info: 96 165 250;               /* #60A5FA - Blue 400 */
+    --info-light: 219 234 254;        /* #DBEAFE - Blue 100 */
+
+    /* Border Radius */
+    --radius-sm: 6px;
+    --radius-md: 8px;
+    --radius-lg: 12px;
+    --radius-xl: 16px;
+    --radius-2xl: 24px;
+
+    /* Shadows */
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.03);
+    --shadow-md: 0 2px 8px rgba(0, 0, 0, 0.04);
+    --shadow-lg: 0 4px 16px rgba(0, 0, 0, 0.06);
+    --shadow-xl: 0 8px 24px rgba(0, 0, 0, 0.08);
+
+    /* Layout */
+    --topbar-height: 52px;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "cv11", "ss01";
+  }
+}
+
+/* Custom utility classes */
+@layer utilities {
+  .sidebar-item {
+    @apply flex items-center gap-2.5 px-3 py-2 rounded-xl text-sm font-medium text-muted-foreground hover:bg-accent hover:text-foreground transition-colors cursor-pointer;
+  }
+
+  .sidebar-item-active {
+    @apply bg-gray-100 text-foreground font-medium;
+  }
+}
+
+/* ===== Onboarding Animations ===== */
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-32px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(32px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes typewriter {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes blink {
+  50% { border-color: transparent; }
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes pulseSoft {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.6; }
+}

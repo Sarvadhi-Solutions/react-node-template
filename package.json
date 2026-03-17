@@ -1,0 +1,34 @@
+{
+  "name": "project-skelaton",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Full-stack monorepo: React 19 frontend + Node.js/Express/Prisma backend",
+  "scripts": {
+    "fe": "npm --prefix frontend",
+    "be": "npm --prefix backend",
+    "fe:install": "npm --prefix frontend install",
+    "be:install": "npm --prefix backend install",
+    "install:all": "npm --prefix frontend install && npm --prefix backend install",
+    "fe:dev": "npm --prefix frontend run local",
+    "be:dev": "npm --prefix backend run dev",
+    "fe:build": "npm --prefix frontend run build",
+    "be:build": "npm --prefix backend run build",
+    "fe:lint": "npm --prefix frontend run lint",
+    "be:lint": "npm --prefix backend run lint",
+    "lint": "npm --prefix frontend run lint && npm --prefix backend run lint",
+    "fe:test": "npm --prefix frontend run test:run",
+    "be:typecheck": "npm --prefix backend run build -- --noEmit",
+    "db:migrate": "npm --prefix backend run prisma:migrate",
+    "db:seed": "npm --prefix backend run prisma:seed",
+    "db:generate": "npm --prefix backend run prisma:generate",
+    "prepare": "husky"
+  },
+  "lint-staged": {
+    "frontend/src/**/*.{ts,tsx}": "frontend/node_modules/.bin/eslint --config frontend/eslint.config.js --fix",
+    "backend/src/**/*.{ts,tsx}": "backend/node_modules/.bin/eslint --config backend/eslint.config.cjs --fix"
+  },
+  "devDependencies": {
+    "husky": "^9.1.6",
+    "lint-staged": "^15.2.10"
+  }
+}
