@@ -34,7 +34,7 @@ Production-ready full-stack monorepo boilerplate — **React 19** frontend + **N
 
 ```bash
 # 1. Clone the repo
-git clone <your-repo-url> && cd ProjectSkelaton
+git clone https://github.com/Sarvadhi-Solutions/react-node-template.git && cd ProjectSkelaton
 
 # 2. Install all dependencies (root + frontend + backend)
 npm install && npm run install:all
@@ -63,18 +63,18 @@ npm run be:dev         # Backend  → http://localhost:3000
 
 All commands run from the **project root**:
 
-| Command | Description |
-|---------|-------------|
+| Command               | Description                                        |
+| --------------------- | -------------------------------------------------- |
 | `npm run install:all` | Install dependencies for both frontend and backend |
-| `npm run fe:dev` | Start frontend dev server (port 5000) |
-| `npm run be:dev` | Start backend dev server (port 3000) |
-| `npm run fe:build` | Production build for frontend |
-| `npm run be:build` | Compile backend TypeScript to `dist/` |
-| `npm run lint` | Lint both frontend and backend |
-| `npm run fe:test` | Run frontend tests (Vitest) |
-| `npm run db:migrate` | Run Prisma database migrations |
-| `npm run db:seed` | Seed database with initial data |
-| `npm run db:generate` | Regenerate Prisma client |
+| `npm run fe:dev`      | Start frontend dev server (port 5000)              |
+| `npm run be:dev`      | Start backend dev server (port 3000)               |
+| `npm run fe:build`    | Production build for frontend                      |
+| `npm run be:build`    | Compile backend TypeScript to `dist/`              |
+| `npm run lint`        | Lint both frontend and backend                     |
+| `npm run fe:test`     | Run frontend tests (Vitest)                        |
+| `npm run db:migrate`  | Run Prisma database migrations                     |
+| `npm run db:seed`     | Seed database with initial data                    |
+| `npm run db:generate` | Regenerate Prisma client                           |
 
 **Run any sub-project script directly:**
 
@@ -143,32 +143,32 @@ ProjectSkelaton/
 
 ### Frontend
 
-| Category | Technology |
-|----------|------------|
-| Framework | React 19 + TypeScript 5.9 |
-| Build Tool | Vite 7 + PWA support |
-| Styling | Tailwind CSS 3.4 + CSS Variables |
-| State | Redux Toolkit + redux-persist |
+| Category     | Technology                              |
+| ------------ | --------------------------------------- |
+| Framework    | React 19 + TypeScript 5.9               |
+| Build Tool   | Vite 7 + PWA support                    |
+| Styling      | Tailwind CSS 3.4 + CSS Variables        |
+| State        | Redux Toolkit + redux-persist           |
 | Server State | React Query (TanStack) — mutations only |
-| Forms | React Hook Form + Zod |
-| Routing | React Router DOM 7 + lazy loading |
-| HTTP | Axios (auth interceptor + auto-unwrap) |
-| Icons | Lucide React |
-| Testing | Vitest + Testing Library + MSW |
+| Forms        | React Hook Form + Zod                   |
+| Routing      | React Router DOM 7 + lazy loading       |
+| HTTP         | Axios (auth interceptor + auto-unwrap)  |
+| Icons        | Lucide React                            |
+| Testing      | Vitest + Testing Library + MSW          |
 
 ### Backend
 
-| Category | Technology |
-|----------|------------|
-| Runtime | Node.js 18+ |
-| Framework | Express |
-| Language | TypeScript 5.7 (strict) |
-| ORM | Prisma 6 (raw SQL reads) |
-| Database | PostgreSQL |
-| Auth | JWT + bcryptjs |
-| Validation | Zod |
-| Logging | Winston |
-| Security | Helmet + CORS + express-rate-limit |
+| Category   | Technology                         |
+| ---------- | ---------------------------------- |
+| Runtime    | Node.js 18+                        |
+| Framework  | Express                            |
+| Language   | TypeScript 5.7 (strict)            |
+| ORM        | Prisma 6 (raw SQL reads)           |
+| Database   | PostgreSQL                         |
+| Auth       | JWT + bcryptjs                     |
+| Validation | Zod                                |
+| Logging    | Winston                            |
+| Security   | Helmet + CORS + express-rate-limit |
 
 ---
 
@@ -176,11 +176,11 @@ ProjectSkelaton/
 
 ### Frontend — State Management
 
-| What | Where |
-|------|-------|
+| What                                    | Where                                         |
+| --------------------------------------- | --------------------------------------------- |
 | API data, filters, pagination, UI state | **Redux Toolkit** (createAsyncThunk for GETs) |
-| Mutations (create/update/delete) | **React Query** (with toast notifications) |
-| Global UI state (sidebar, timers) | **React Context** |
+| Mutations (create/update/delete)        | **React Query** (with toast notifications)    |
+| Global UI state (sidebar, timers)       | **React Context**                             |
 
 ### Backend — Layered Architecture
 
@@ -190,10 +190,10 @@ Request → Middleware (auth, validate) → Controller → Service → Repositor
                                         handleApiResponse → { success, statusCode, message, data, pagination }
 ```
 
-| Layer | Responsibility |
-|-------|---------------|
+| Layer          | Responsibility                                           |
+| -------------- | -------------------------------------------------------- |
 | **Controller** | HTTP only — parse request, call service, return response |
-| **Service** | Business rules, orchestration, throw `AppError` |
+| **Service**    | Business rules, orchestration, throw `AppError`          |
 | **Repository** | Data access — raw SQL reads (`$queryRaw`), Prisma writes |
 
 ---
@@ -202,12 +202,12 @@ Request → Middleware (auth, validate) → Controller → Service → Repositor
 
 **Flow:** Login → JWT issued → stored in Redux (persisted) → Axios interceptor attaches `Bearer` token → backend validates via `authenticate` middleware → role guards restrict access.
 
-| Role | Access Level |
-|------|-------------|
-| `SUPER_ADMIN` | Full system access |
-| `ADMIN` | Organization management |
-| `MANAGER` | Team management |
-| `MEMBER` | Standard user |
+| Role          | Access Level            |
+| ------------- | ----------------------- |
+| `SUPER_ADMIN` | Full system access      |
+| `ADMIN`       | Organization management |
+| `MANAGER`     | Team management         |
+| `MEMBER`      | Standard user           |
 
 ---
 
@@ -228,6 +228,7 @@ Both apps support four environments: `local` · `dev` · `staging` · `productio
 ### Pre-Commit Hooks
 
 Husky is configured at the **root only**. On every commit, lint-staged automatically:
+
 - Runs **ESLint** on changed `.ts/.tsx` files in `frontend/` and `backend/` (using each project's own config)
 
 ### Standards
@@ -269,6 +270,7 @@ Husky is configured at the **root only**. On every commit, lint-staged automatic
 ### With AI Assistants
 
 Use the built-in skills for consistent scaffolding:
+
 - **`/node <feature>`** — generates all backend module files
 - **`/react <feature>`** — generates all frontend feature files
 
@@ -278,15 +280,15 @@ Use the built-in skills for consistent scaffolding:
 
 This repo is configured for consistent AI-assisted development:
 
-| File | Purpose |
-|------|---------|
-| `CLAUDE.md` | Entry point — repo layout, monorepo scripts, cross-cutting rules |
-| `.claude/rules/react.md` | Frontend coding rules (auto-loaded for `frontend/` work) |
-| `.claude/rules/node.md` | Backend coding rules (auto-loaded for `backend/` work) |
-| `.claude/skills/react.md` | `/react` skill — scaffold React features |
-| `.claude/skills/node.md` | `/node` skill — scaffold Node.js modules |
-| `frontend/.cursorrules` | Same rules for Cursor IDE |
-| `project-spec.md` | Full architectural specification |
+| File                      | Purpose                                                          |
+| ------------------------- | ---------------------------------------------------------------- |
+| `CLAUDE.md`               | Entry point — repo layout, monorepo scripts, cross-cutting rules |
+| `.claude/rules/react.md`  | Frontend coding rules (auto-loaded for `frontend/` work)         |
+| `.claude/rules/node.md`   | Backend coding rules (auto-loaded for `backend/` work)           |
+| `.claude/skills/react.md` | `/react` skill — scaffold React features                         |
+| `.claude/skills/node.md`  | `/node` skill — scaffold Node.js modules                         |
+| `frontend/.cursorrules`   | Same rules for Cursor IDE                                        |
+| `project-spec.md`         | Full architectural specification                                 |
 
 Every team member — human or AI — follows the same rules, producing consistent code across the entire codebase.
 
